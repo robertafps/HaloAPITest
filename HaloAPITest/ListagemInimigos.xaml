@@ -7,6 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+        <ListBox x:Name="ListaInimigos" Margin="10,10,10,9">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <local:inimigohalo MouseDoubleClick="inimigohalo_MouseDoubleClick"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>     
     </Grid>
 </UserControl>

@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HaloAPITest"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="150" d:DesignWidth="500">
     <Grid>
-        <Image Source="{Binding LargeIconImageUrl}" HorizontalAlignment="Left" Height="130" Margin="22,67,0,0" VerticalAlignment="Top" Width="123"/>
-        <TextBlock HorizontalAlignment="Left" Margin="162,67,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Height="204" Width="114"/>
-
+        <Image Source="{Binding LargeIconImageUrl}" HorizontalAlignment="Left" Height="130" Margin="10,10,0,0" VerticalAlignment="Top" Width="123"/>
+        <TextBlock Margin="150,10,10,0" TextWrapping="Wrap" Text="{Binding Name}" Height="35" VerticalAlignment="Top"/>
+        <TextBlock Margin="150,70,10,10" TextWrapping="Wrap" Text="{Binding Description}"/>
     </Grid>
 </UserControl>

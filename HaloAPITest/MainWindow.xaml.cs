@@ -24,7 +24,9 @@ namespace HaloAPITest
     /// </summary>
     public partial class MainWindow : ModernWindow
     {
-        string key = "bfbfbce13da44f9db06d881c5ebb158f";
+        static string key = "bfbfbce13da44f9db06d881c5ebb158f";
+        HaloAPIService haloAPI = new HaloAPIService(key);
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,11 +34,17 @@ namespace HaloAPITest
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            HaloAPIService api = new HaloAPIService(key);
+            
+            
 
-            var enemies = await api.GetEnemies();
+            var enemies = await haloAPI.GetEnemies();
 
-            ListaInimigos.ItemsSource = enemies;
+            //foreach (var item in enemies)
+            //{
+            //    item.Description
+            //}
+
+            //ListaInimigos.ItemsSource = enemies;
 
             //foreach (var match in matches.Results)
             //{
@@ -58,7 +66,10 @@ namespace HaloAPITest
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (Lista.SelectedIndex == 0)
+            {
+                Conteudo.Navigate(new ListagemInimigos(haloAPI));
+            }
         }
     }
 }

@@ -9,18 +9,23 @@
         Style="{StaticResource BlankWindow}"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="141"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="59*"/>
-            <RowDefinition Height="260*"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="217,81.23,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Grid.Row="1"/>
-        <ListBox x:Name="ListaInimigos" Margin="311,38.23,10,9" Grid.Row="1">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <local:inimigohalo MouseDoubleClick="inimigohalo_MouseDoubleClick"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
+
+        <Image Source="pics/halo.jpg" Stretch="UniformToFill" Grid.ColumnSpan="2"/>
+        <ListBox x:Name="Lista" Margin="10,10,7,10" Grid.Row="1" SelectionChanged="ListBox_SelectionChanged">
+            <ListBox.Items>
+                <ListBoxItem Content="enemies"></ListBoxItem>
+                <ListBoxItem Content="maps"/>
+                <ListBoxItem Content="vehicles"/>
+            </ListBox.Items>
         </ListBox>
-        <Image Source="pics/halo.jpg" Stretch="UniformToFill"/>
+        <Frame x:Name="Conteudo" Content="Frame" Grid.Column="1" Margin="10" Grid.Row="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </mui:ModernWindow>

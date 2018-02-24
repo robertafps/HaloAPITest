@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HaloEzAPI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,26 @@ namespace HaloAPITest
     /// </summary>
     public partial class ListagemInimigos : UserControl
     {
-        public ListagemInimigos()
+        HaloAPIService haloAPI;
+
+        public ListagemInimigos(HaloAPIService _haloAPI)
         {
             InitializeComponent();
+
+            haloAPI = _haloAPI;
+
+            CarregarInimigos();
+        }
+
+        async void CarregarInimigos()
+        {
+            var inimigos = await haloAPI.GetEnemies();
+            ListaInimigos.ItemsSource = inimigos;
+        }
+
+        private void inimigohalo_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }
